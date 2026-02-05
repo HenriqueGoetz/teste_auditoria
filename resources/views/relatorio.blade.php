@@ -27,14 +27,14 @@
         <h1 class="mx-auto mb-10 text-center text-[24px] font-bold">Resultado do Relatório</h1>
         <div class="flex flex-col  gap-[10px]">
           <div class="border-t border-gray-300"></div>
-          <p class="flex justify-between flex-wrap"><b>Nome da empresa: </b> {{ $empresa->nome }}</p>
+          <p class="flex justify-between flex-wrap"><b class="flex-1">Nome da empresa: </b> {{ $empresa->nome }}</p>
           <div class="border-t border-gray-300"></div>
-          <p class="flex justify-between flex-wrap"><b>CNPJ: </b> {{ $empresa->cnpj }}</p>
+          <p class="flex justify-between flex-wrap"><b class="flex-1">CNPJ: </b> {{ $empresa->cnpj }}</p>
           <div class="border-t border-gray-300"></div>
-          <p class="flex justify-between flex-wrap"><b>ICMS Pago: </b> R$
+          <p class="flex justify-between flex-wrap"><b class="flex-1">ICMS Pago: </b> R$
             {{ number_format($empresa->icms_pago, 2, ',', '.') }}</p>
           <div class="border-t border-gray-300"></div>
-          <p class="flex justify-between flex-wrap"><b>Créditos Possíveis: </b> R$
+          <p class="flex justify-between flex-wrap"><b class="flex-1">Créditos Possíveis: </b> R$
             {{ number_format($empresa->creditos_possiveis, 2, ',', '.') }}</p>
           <div class="border-t border-gray-300"></div>
           <p class="flex justify-between flex-wrap"><b class="flex-1">Percentual de Crédito: </b>
