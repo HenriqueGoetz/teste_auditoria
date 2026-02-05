@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Relatório - {{ config('app.name', 'Laravel') }}</title>
   <meta name="description" content="Teste prático de programação utilizando Laravel">
-  <!-- Fonts -->
+
+  <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
+
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
-  <!-- Styles / Scripts -->
   @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   @endif
