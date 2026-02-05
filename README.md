@@ -22,6 +22,14 @@ Desenvolver uma página para cadastro de empresas e cálculo do percentual de cr
 3. Relatório (/empresas/{ID})
 4. Relatórios (/empresas)
 
+## Desenvolvimento
+
+Para iniciar a execução do ambiente em desenvolvimento é necessário um conjunto de dependências e a executação dos seguintes comandos:
+
+- composer install
+- npm install
+- composer run dev
+
 ## Produção
 
 O repositório foi integrado com o Railway para facilitar testes e validações. O banco de dados é um SQLite, portanto, não fica persistente após novos deploys. Acesse:
