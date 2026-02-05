@@ -24,7 +24,10 @@
   <div class="mt-[40px] w-full max-w-[640px] mx-auto">
     <h1 class="mx-auto mb-10 text-center text-[24px] font-bold">Empresas Cadastradas</h1>
 
-    <div class="flex flex-col gap-[10px]">
+    <div class="flex flex-col gap-[10px] mb-[20px]">
+      @if (count($empresas) === 0)
+        <p class="text-center ">Nenhuma empresa cadastrada ainda.</p>
+      @endif
       @foreach ($empresas as $empresa)
         <div class="bg-white rounded-[10px] p-4 text-gray-700 flex  items-center justify-between gap-[10px] flex-wrap">
           <p><b>Nome da empresa: </b> {{ $empresa->nome }}</p>
@@ -38,7 +41,7 @@
     </div>
 
     <a href="{{ route('empresa') }}"
-      class="animate-pulse text-center block cursor-pointer mt-[10px] bg-[#8b6f4c] hover:bg-[#777] text-white font-bold py-3 px-6 rounded-[10px]">Novo
+      class="text-center block cursor-pointer mt-[10px] bg-[#8b6f4c] hover:bg-[#777] text-white font-bold py-3 px-6 rounded-[10px]">Novo
       relatório
     </a>
   </div>

@@ -47,7 +47,7 @@
     </a>
     <a href="{{ route('empresa') }}"
       class="text-center block cursor-pointer border-2 border-[#8b6f4c] text-[#8b6f4c]
-          hover:bg-[#8b6f4c] hover:text-white
+          hover:bg-[rgba(255,255,255,0.9)] hover:text-gray-800
           font-bold py-3 px-6 rounded-[10px] transition">
       Novo relatório
     </a>
