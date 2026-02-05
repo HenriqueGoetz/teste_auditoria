@@ -1,5 +1,28 @@
 import "./bootstrap";
 
+function isValidCNPJ(cnpj) {
+    cnpj = cnpj.replace(/\D/g, "");
+    if (cnpj.length !== 14 || /^(\d)\1+$/.test(cnpj)) return false;
+
+    const calc = (len) => {
+        let sum = 0;
+        let weight = len - 7;
+
+        for (let i = 0; i < len; i++) {
+            sum += cnpj[i] * weight--;
+            if (weight < 2) weight = 9;
+        }
+
+        const mod = sum % 11;
+        return mod < 2 ? 0 : 11 - mod;
+    };
+
+    return calc(12) == cnpj[12] && calc(13) == cnpj[13];
+}
+
+const wait = (seconds) =>
+    new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("cadastro-empresa");
     if (!form) return;
@@ -12,20 +35,32 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     const loading = form.querySelector("#loading");
+    const error = form.querySelector("#error");
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
+
+        error.textContent = "";
+        error.style.display = "none";
+
+        if (!isValidCNPJ(cnpjInput.value)) {
+            error.textContent =
+                "CNPJ inválido. Por favor, verifique o número e tente novamente.";
+            error.style.display = "block";
+            return;
+        }
+
         loading.style.display = "flex";
+        await wait(2);
         try {
             const response = await axios.post(
-                "/api/empresa",
+                "/api/empresas",
                 JSON.stringify({
                     nome: nomeInput.value,
                     cnpj: cnpjInput.value,
-                    icms_pago: icmsPagoInput.value.replace(/\D/g, ""),
-                    creditos_possiveis: creditosPossiveisInput.value.replace(
-                        /\D/g,
-                        "",
+                    icms_pago: parseInt(icmsPagoInput.value.replace(/\D/g, "")),
+                    creditos_possiveis: parseInt(
+                        creditosPossiveisInput.value.replace(/\D/g, ""),
                     ),
                 }),
                 {
@@ -36,11 +71,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
             );
 
-            if (response.ok) {
-                alert("Enviado com sucesso!");
+            if (response.status === 201) {
+                const data = response.data;
+                window.location.href = `/empresas/${data.id}`;
+            } else {
+                error.textContent =
+                    "Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.";
+                error.style.display = "block";
             }
-        } catch (error) {
-            alert("Ocorreu um erro ao enviar o formulário.");
+        } catch (err) {
+            error.textContent =
+                "Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.";
+            error.style.display = "block";
         }
 
         loading.style.display = "none";
@@ -60,13 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
         cnpjInput.addEventListener("input", (e) => {
             e.target.value = maskCNPJ(e.target.value);
         });
-    }
-
-    function maskMoney(value) {
-        const numeric = value.replace(/\D/g, "");
-        const number = (Number(numeric) / 100).toFixed(2);
-
-        return number.replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
 
     function applyMoneyMask(input) {
