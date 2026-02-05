@@ -29,7 +29,7 @@
       a calculadora
     </a>
     <a href="{{ route('empresas.index') }}"
-      class=" block cursor-pointer border-2 border-[#8b6f4c] text-[#8b6f4c]
+      class="block cursor-pointer border-2 border-[#8b6f4c] text-[#8b6f4c]
           hover:bg-[rgba(255,255,255,0.9)] hover:text-gray-800
           font-bold py-3 px-6 rounded-[10px] transition">
       Ver relatórios cadastrados
