@@ -27,6 +27,7 @@ Desenvolver uma página para cadastro de empresas e cálculo do percentual de cr
 Para iniciar a execução do ambiente em desenvolvimento é necessário um conjunto de dependências e a executação dos seguintes comandos:
 
 - composer install
+- php artisan migrate
 - npm install
 - composer run dev
 
