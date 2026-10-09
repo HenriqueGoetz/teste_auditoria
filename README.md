@@ -1,38 +1,40 @@
-# Teste - Auditoria
+# Audit Test
 
-Esse repositório foi criado para realizar um teste de programação em Laravel e Tailwind.
+![Featured image](https://raw.githubusercontent.com/HenriqueGoetz/teste_auditoria/main/public/grupo-studio.png)
 
-## Tarefa inicial
+This repository was created to complete a Laravel and Tailwind programming test.
 
-Desenvolver uma página para cadastro de empresas e cálculo do percentual de crédito a partir do ICMS pago e créditos possíveis.
+## Initial task
 
-## Funcionalides desenvoldidas
+Develop a page for registering companies and calculating the credit percentage based on the ICMS paid and possible credits.
 
-- Validação e máscaraS para campos do formulário
-- Chamada AJAX para cadastro da empresa
-- Estado de loading para requisição AJAX
-- Tela de relatório (/empresas/{id})
-- Tela de listagem dos relatórios (/empresas)
-- Exportação do relatório como PNG
+## Features implemented
 
-## Rotas disponíveis
+- Validation and masks for form fields
+- AJAX call to register the company
+- Loading state for the AJAX request
+- Report screen (/empresas/{id})
+- Reports listing screen (/empresas)
+- Export the report as PNG
+
+## Available routes
 
 1. Home (/)
-2. Cadastro (/empresa)
-3. Relatório (/empresas/{ID})
-4. Relatórios (/empresas)
+2. Registration (/empresa)
+3. Report (/empresas/{ID})
+4. Reports (/empresas)
 
-## Desenvolvimento
+## Development
 
-Para iniciar a execução do ambiente em desenvolvimento é necessário um conjunto de dependências e a executação dos seguintes comandos:
+To start the development environment, it is necessary to install dependencies and run the following commands:
 
 - composer install
 - php artisan migrate
 - npm install
 - composer run dev
 
-## Produção
+## Production
 
-O repositório foi integrado com o Railway para facilitar testes e validações. O banco de dados é um SQLite, portanto, não fica persistente após novos deploys. Acesse:
+During the validation phase, this project was made publicly available via Railway to facilitate testing and review. The database is SQLite, so it is not persistent across new deploys.
 
-https://testeauditoria-production.up.railway.app/empresas.
+Please note: the production application was publicly accessible during validation, but it is no longer available.
