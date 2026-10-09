@@ -1,6 +1,6 @@
 # Audit Test
 
-![Featured image](https://raw.githubusercontent.com/HenriqueGoetz/teste_auditoria/main/public/grupo-studio.png)
+![Featured image](/public/featured-image.png)
 
 This repository was created to complete a Laravel and Tailwind programming test.
 
